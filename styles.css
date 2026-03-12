@@ -1,0 +1,248 @@
+:root {
+  --bg: #fcf8f6;
+  --text: #6d697d;
+  --btn-green: #a0c9ba;
+  --btn-pink: #e8aba2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.page-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+}
+
+.content-panel {
+  padding: 3rem clamp(1.5rem, 5vw, 5.5rem) 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.brand-logo {
+  width: clamp(132px, 16.8vw, 192px);
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 1.5rem;
+}
+
+.content-middle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.description {
+  max-width: 550px;
+  width: 100%;
+}
+
+.description p {
+  margin: 0 0 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.social-btn {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.45rem;
+  display: block;
+}
+
+.social-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.social-btn-green {
+  background: var(--btn-green);
+  box-shadow: 7px 7px 10px rgba(160, 201, 186, 0.4);
+}
+
+.social-btn-pink {
+  background: var(--btn-pink);
+  box-shadow: 7px 7px 10px rgba(232, 171, 162, 0.4);
+}
+
+.site-footer {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+}
+
+.copyright-notice {
+  font-weight: 400;
+  font-size: 0.71rem;
+  line-height: 1.55;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.slideshow-panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.slideshow-track {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(252, 248, 246, 0.78);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.slide-nav:hover {
+  background: rgba(252, 248, 246, 0.94);
+  transform: translateY(-50%) scale(1.03);
+}
+
+.slide-prev {
+  left: 1rem;
+}
+
+.slide-next {
+  right: 1rem;
+}
+
+@media (max-width: 980px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .slideshow-panel {
+    min-height: 52vh;
+    order: -1;
+  }
+
+  .content-panel {
+    min-height: auto;
+    justify-content: flex-start;
+    padding: 2rem 1.4rem 2rem;
+  }
+
+  .content-middle {
+    flex: 0;
+    justify-content: flex-start;
+  }
+
+  .description p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 560px) {
+  .content-panel {
+    padding: 1.4rem 1.15rem 2rem;
+  }
+
+  .brand-logo {
+    margin-bottom: 1.4rem;
+  }
+
+  .slideshow-panel {
+    min-height: 38vh;
+  }
+
+  .slide-nav {
+    width: 2.35rem;
+    height: 2.35rem;
+    font-size: 1.2rem;
+  }
+
+  .slide-prev {
+    left: 0.65rem;
+  }
+
+  .slide-next {
+    right: 0.65rem;
+  }
+
+  .social-buttons {
+    gap: 0.6rem;
+  }
+
+  .social-btn {
+    font-size: 0.88rem;
+    padding: 0.65rem 0.9rem;
+  }
+}
