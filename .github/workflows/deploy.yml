@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-aruba-production
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -27,3 +32,4 @@ jobs:
             **/.git*/**
             **/node_modules/**
             .github/**
+            README.md
